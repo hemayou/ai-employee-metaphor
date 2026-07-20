@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学术源流与讨论 —— 人、机器与自动化劳动关系的研究谱系</title>
+<meta name="description" content="从 1832 年到 2026 年，人与机器/自动化/AI 劳动关系研究的九条脉络：时间轴、影响与反驳关系、证据强度矩阵，以及未来研究展望。">
+<style>
+:root{
+  --paper:#E8EAEE; --paper-2:#DEE1E7; --paper-3:#D4D8E0;
+  --ink:#15171C; --ink-2:#3D434F; --ink-3:#697084;
+  --rule:#C3C8D2; --rule-2:#AEB5C2;
+  --accent:#26356B; --accent-soft:#5A6BA8;
+  --mark:#B49A3E; --mark-bg:rgba(180,154,62,.16);
+  --quote-bg:#DFE2E9;
+  --ok:#3F6E5A; --warn:#8A6B3A; --bad:#8A3B44;
+
+  --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --measure:35em; --wide:min(96vw,1180px);
+  --s1:.5rem; --s2:1rem; --s3:1.6rem; --s4:2.6rem; --s5:4.2rem; --s6:6.4rem;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#111318; --paper-2:#171A21; --paper-3:#1E222B;
+  --ink:#DFE2E8; --ink-2:#B2B8C4; --ink-3:#828A9B;
+  --rule:#2B3039; --rule-2:#3A4150;
+  --accent:#8FA2DE; --accent-soft:#6B7CB8;
+  --mark:#C7AE60; --mark-bg:rgba(199,174,96,.15);
+  --quote-bg:#1A1E26;
+  --ok:#6E9478; --warn:#D0AC72; --bad:#CE7C86;
+}}
+:root[data-theme="dark"]{
+  --paper:#111318; --paper-2:#171A21; --paper-3:#1E222B;
+  --ink:#DFE2E8; --ink-2:#B2B8C4; --ink-3:#828A9B;
+  --rule:#2B3039; --rule-2:#3A4150;
+  --accent:#8FA2DE; --accent-soft:#6B7CB8;
+  --mark:#C7AE60; --mark-bg:rgba(199,174,96,.15);
+  --quote-bg:#1A1E26;
+  --ok:#6E9478; --warn:#D0AC72; --bad:#CE7C86;
+}
+:root[data-theme="light"]{
+  --paper:#E8EAEE; --paper-2:#DEE1E7; --paper-3:#D4D8E0;
+  --ink:#15171C; --ink-2:#3D434F; --ink-3:#697084;
+  --rule:#C3C8D2; --rule-2:#AEB5C2;
+  --accent:#26356B; --accent-soft:#5A6BA8;
+  --mark:#B49A3E; --mark-bg:rgba(180,154,62,.16);
+  --quote-bg:#DFE2E9;
+  --ok:#3F6E5A; --warn:#8A6B3A; --bad:#8A3B44;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.95;
+  -webkit-font-smoothing:antialiased}
+::selection{background:var(--mark-bg)}
+a{color:var(--accent); text-underline-offset:.22em}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+.spine{position:fixed; inset-block:0; left:max(1.1rem,calc(50vw - var(--measure)/2 - 3.4rem));
+  width:1px; background:var(--rule); z-index:0; pointer-events:none}
+@media (max-width:900px){.spine{display:none}}
+
+.col{position:relative; z-index:1; max-width:var(--measure); margin-inline:auto; padding-inline:1.25rem}
+.full{position:relative; z-index:1; max-width:var(--wide); margin-inline:auto; padding-inline:1.25rem}
+
+/* ── 顶栏 ─────────────────────────────────────────── */
+.topbar{position:sticky; top:0; z-index:10; background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--rule)}
+.topbar-in{max-width:var(--wide); margin-inline:auto; padding:.7rem 1.25rem;
+  display:flex; align-items:center; gap:1rem; font-family:var(--sans); font-size:12.5px}
+.topbar a.home{color:var(--ink-3); text-decoration:none; display:flex; align-items:center; gap:.4rem}
+.topbar a.home:hover{color:var(--accent)}
+.topbar .sep{flex:1}
+.tbtn{font-family:var(--sans); font-size:11px; letter-spacing:.12em;
+  padding:.4rem .7rem; border:1px solid var(--rule); border-radius:2px;
+  background:var(--paper-2); color:var(--ink-3); cursor:pointer}
+.tbtn:hover{color:var(--ink); border-color:var(--accent-soft)}
+
+/* ── 报头 ─────────────────────────────────────────── */
+header.mast{padding-top:var(--s5); padding-bottom:var(--s4)}
+.kicker{font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.22em;
+  color:var(--mark); margin:0 0 var(--s3); display:flex; align-items:center; gap:.75rem}
+.kicker::after{content:""; flex:1; height:1px; background:var(--rule)}
+h1{font-family:var(--sans); font-weight:700; font-size:clamp(2.1rem,6.5vw,3.2rem);
+  line-height:1.15; letter-spacing:-.02em; margin:0 0 var(--s2); text-wrap:balance}
+.dek{font-family:var(--sans); font-size:1.02rem; line-height:1.7; color:var(--ink-2);
+  margin:0 0 var(--s3); max-width:30em}
+.byline{font-family:var(--mono); font-size:11.5px; line-height:1.9; color:var(--ink-3);
+  border-top:1px solid var(--rule); padding-top:var(--s2); margin:0}
+.byline b{color:var(--ink-2)}
+
+main{display:flex; flex-direction:column; gap:var(--s6); padding-bottom:var(--s6)}
+section{display:flex; flex-direction:column; gap:var(--s3)}
+h2{font-family:var(--sans); font-weight:700; font-size:1.42rem; line-height:1.4; margin:0;
+  padding-top:var(--s2); border-top:2px solid var(--ink); align-self:start; text-wrap:balance}
+h3{font-family:var(--sans); font-weight:600; font-size:1.05rem; margin:0; color:var(--ink-2)}
+p{margin:0}
+p.beat{font-family:var(--sans); font-weight:600; font-size:1.14rem; line-height:1.6; color:var(--ink)}
+.note{font-family:var(--mono); font-size:11.5px; line-height:1.8; color:var(--ink-3)}
+strong{font-weight:700}
+
+/* ── 时间轴 ───────────────────────────────────────── */
+.tl-wrap{border:1px solid var(--rule); background:var(--paper-2)}
+.tl-head{display:flex; flex-wrap:wrap; align-items:center; gap:.6rem;
+  padding:.8rem 1rem; border-bottom:1px solid var(--rule); font-family:var(--sans); font-size:12px}
+.tl-head .grow{flex:1}
+.chip{font-family:var(--sans); font-size:11px; padding:.32em .7em; border:1px solid var(--rule);
+  border-radius:2px; background:transparent; color:var(--ink-3); cursor:pointer; white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--paper)}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#0E1015}
+@media (prefers-color-scheme:dark){.chip[aria-pressed="true"]{color:#0E1015}}
+:root[data-theme="light"] .chip[aria-pressed="true"]{color:var(--paper)}
+.tl-scroll{overflow-x:auto; overflow-y:hidden}
+#tl{display:block; min-width:900px}
+.tl-lane-label{font-family:var(--sans); font-size:11.5px; font-weight:600}
+.tl-lane-sub{font-family:var(--mono); font-size:9.5px}
+.tl-axis{font-family:var(--mono); font-size:10px; fill:var(--ink-3)}
+.tl-dot{cursor:pointer; transition:r .12s ease}
+.tl-dot:hover{stroke:var(--ink); stroke-width:1.5}
+.tl-arc{fill:none; opacity:.55}
+.tl-band{opacity:.06}
+
+/* 详情面板 */
+.tl-detail{border-top:1px solid var(--rule); padding:1.1rem 1rem; min-height:8.5rem;
+  display:flex; flex-direction:column; gap:.5rem; background:var(--paper-3)}
+.tl-detail .empty{font-family:var(--mono); font-size:12px; color:var(--ink-3)}
+.tl-detail .d-y{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.05em}
+.tl-detail .d-t{font-family:var(--sans); font-weight:700; font-size:1.08rem; line-height:1.45}
+.tl-detail .d-o{font-family:var(--mono); font-size:11.5px; color:var(--ink-2); line-height:1.7}
+.tl-detail .d-k{font-size:.98rem; line-height:1.8}
+.tl-detail .d-r{font-size:.95rem; line-height:1.8; background:var(--mark-bg); padding:.5rem .7rem; border-left:2px solid var(--mark)}
+.tl-detail .d-links{font-family:var(--mono); font-size:11px; color:var(--ink-3); line-height:1.8}
+.pill{display:inline-block; font-family:var(--sans); font-size:10px; font-weight:700;
+  letter-spacing:.08em; padding:.2em .55em; border-radius:2px; color:#fff; vertical-align:.1em}
+.pill.pivot{background:var(--mark); color:#1B1608}
+.pill.caution{background:var(--bad)}
+.pill.nopeer{background:var(--ink-3)}
+
+/* ── 断线 ─────────────────────────────────────────── */
+.gap-card{border:1px dashed var(--rule-2); padding:1.2rem 1.2rem; display:flex; flex-direction:column; gap:.7rem}
+.gap-pair{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; font-family:var(--sans); font-size:12.5px}
+.gap-node{padding:.4rem .8rem; border:1px solid currentColor; border-radius:2px; font-weight:600}
+.gap-line{flex:1; min-width:3rem; height:1px; background:repeating-linear-gradient(90deg,var(--rule-2) 0 5px,transparent 5px 11px)}
+.gap-x{font-family:var(--mono); font-size:14px; color:var(--bad); font-weight:700}
+
+/* ── 证据矩阵 ─────────────────────────────────────── */
+.ev-wrap{border:1px solid var(--rule); background:var(--paper-2)}
+.ev-head{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
+  padding:.8rem 1rem; border-bottom:1px solid var(--rule); font-family:var(--sans); font-size:12px}
+.ev-grid{display:flex; flex-direction:column}
+.ev-row{display:grid; grid-template-columns:3.2rem 1fr 7.5rem 4.5rem 5.5rem;
+  gap:.8rem; padding:.85rem 1rem; border-bottom:1px solid var(--rule); align-items:start}
+.ev-row:last-child{border-bottom:0}
+.ev-row.hdr{font-family:var(--sans); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3);
+  background:var(--paper-3); position:sticky; top:3rem; z-index:2}
+.ev-y{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12px; color:var(--ink-3)}
+.ev-t{font-family:var(--sans); font-size:13.5px; font-weight:600; line-height:1.5}
+.ev-t small{display:block; font-weight:400; font-size:11.5px; color:var(--ink-3);
+  font-family:var(--mono); margin-top:.15rem}
+.ev-cav{display:block; font-family:var(--serif); font-weight:400; font-size:12.5px;
+  color:var(--ink-2); line-height:1.7; margin-top:.35rem; padding-left:.6rem; border-left:2px solid var(--bad)}
+.ev-d{font-family:var(--sans); font-size:11.5px; display:flex; flex-direction:column; gap:.3rem}
+.ev-bar{display:flex; gap:2px}
+.ev-bar i{width:8px; height:4px; background:var(--rule-2); border-radius:1px}
+.ev-bar i.on{background:var(--accent)}
+.ev-n{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12px; text-align:right}
+.ev-p{font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.06em}
+.ev-p.yes{color:var(--ok)} .ev-p.no{color:var(--warn)}
+@media (max-width:760px){
+  .ev-row{grid-template-columns:3rem 1fr; gap:.5rem}
+  .ev-row.hdr{display:none}
+  .ev-d,.ev-n,.ev-p{grid-column:2; font-size:11px}
+}
+
+/* ── 学派卡 ───────────────────────────────────────── */
+.schools{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule)}
+.sc{background:var(--paper-2); padding:1rem; display:flex; flex-direction:column; gap:.45rem}
+.sc .bar{height:3px; border-radius:2px}
+.sc .n{font-family:var(--sans); font-weight:700; font-size:1rem}
+.sc .s{font-family:var(--mono); font-size:10.5px; color:var(--ink-3)}
+.sc .q{font-size:.92rem; line-height:1.75; color:var(--ink-2)}
+.sc .cnt{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); margin-top:auto; padding-top:.4rem}
+
+/* ── 待补占位 ─────────────────────────────────────── */
+.pending{border:1px dashed var(--rule-2); padding:1.2rem; background:transparent;
+  font-family:var(--mono); font-size:12px; line-height:1.9; color:var(--ink-3);
+  display:flex; flex-direction:column; gap:.5rem}
+.pending b{font-family:var(--sans); font-size:13px; color:var(--ink-2); font-weight:700}
+
+footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(--s5);
+  font-family:var(--mono); font-size:11.5px; line-height:1.95; color:var(--ink-3);
+  display:flex; flex-direction:column; gap:var(--s2)}
+@media (max-width:640px){body{font-size:16.5px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+@media print{.topbar,.spine,.tl-head,.ev-head{display:none}}
+</style>
+</head>
+<body>
+<div class="spine" aria-hidden="true"></div>
+
+<nav class="topbar">
+  <div class="topbar-in">
+    <a class="home" href="./">← 当牛马有了下属</a>
+    <span class="sep"></span>
+    <span style="font-family:var(--mono);font-size:11px;color:var(--ink-3)">学术源流与讨论</span>
+    <button class="tbtn" id="tt" type="button">明 / 暗</button>
+  </div>
+</nav>
+
+<div class="col">
+<header class="mast">
+  <p class="kicker">文献综述</p>
+  <h1>学术源流与讨论</h1>
+  <p class="dek">人、机器与自动化劳动关系的研究谱系　1832 — 2026</p>
+  <p class="byline">
+    九条脉络　<b id="stat-schools">—</b><br>
+    收录文献　<b id="stat-works">—</b>　影响与反驳关系　<b id="stat-links">—</b><br>
+    状态　<b>骨架已就位，分节正文与扩充书目撰写中</b>
+  </p>
+</header>
+</div>
+
+<main>
+
+<!-- ═══ 时间轴 ═══ -->
+<section class="full">
+  <div class="col" style="padding-inline:0">
+    <h2>九条脉络，一百九十四年</h2>
+    <p>横轴是年份，纵轴是学派。每个点是一篇文献，颜色按年代渐变——从深靛（古典）到暗红（大模型实证）。中文学界那条故意跳出渐变，因为它是平行轨道，不是后续年代。</p>
+    <p class="note">点开任一文献看详情。打开"影响与反驳"后，弧线连起有引用或对立关系的两篇——<strong>也就能看见哪些学派之间根本没有连线。</strong></p>
+  </div>
+
+  <div class="tl-wrap" style="margin-top:1.4rem">
+    <div class="tl-head">
+      <button class="chip" id="arcs" type="button" aria-pressed="false">影响与反驳</button>
+      <button class="chip" id="pivots" type="button" aria-pressed="false">只看枢纽文献</button>
+      <span class="grow"></span>
+      <span class="note" id="tl-hint">点击学派名可单独查看</span>
+    </div>
+    <div class="tl-scroll"><svg id="tl" role="img" aria-label="学术源流时间轴"></svg></div>
+    <div class="tl-detail" id="tl-detail"><span class="empty">点击任一文献查看详情</span></div>
+  </div>
+</section>
+
+<!-- ═══ 学派概览 ═══ -->
+<section class="full">
+  <div class="col" style="padding-inline:0">
+    <h2>各脉络追问什么</h2>
+  </div>
+  <div class="schools" id="schools"></div>
+</section>
+
+<!-- ═══ 断线 ═══ -->
+<section class="col">
+  <h2>没有连起来的地方</h2>
+  <p>把影响关系画出来之后，最扎眼的不是连线，是空白。以下两处断裂，是本综述的核心观察。</p>
+  <div id="gaps" style="display:flex;flex-direction:column;gap:1rem"></div>
+</section>
+
+<!-- ═══ 证据矩阵 ═══ -->
+<section class="full">
+  <div class="col" style="padding-inline:0">
+    <h2>证据强度矩阵</h2>
+    <p>大模型时代的实证研究，按研究设计强度排开。这是一张工作用表：<strong>哪条能直接引，哪条必须加限定，一眼看出来。</strong></p>
+    <p class="note">设计强度五格满格为随机对照；自报告调查与个案只有一格。红色竖线标出的是必须随文交代的限度。</p>
+  </div>
+  <div class="ev-wrap" style="margin-top:1.4rem">
+    <div class="ev-head">
+      <span style="color:var(--ink-3)">排序</span>
+      <button class="chip" data-sort="rank" aria-pressed="true" type="button">设计强度</button>
+      <button class="chip" data-sort="year" aria-pressed="false" type="button">年份</button>
+      <button class="chip" data-sort="n" aria-pressed="false" type="button">样本量</button>
+    </div>
+    <div class="ev-grid" id="ev"></div>
+  </div>
+</section>
+
+<!-- ═══ 待补 ═══ -->
+<section class="col">
+  <h2>分节正文</h2>
+  <div class="pending">
+    <b>撰写中</b>
+    九节正文与扩充书目正由分学派研究员并行撰写，每节完成后立即进入逐条书目核查。
+    完成后将合并入本页，替换此处占位。
+    <span>· 古典源流　· 控制论与自动化　· 人因工程　· 拟人化与 CASA　· 数字劳动</span>
+    <span>· 责任与伦理　· AI 作为队友　· LLM 实证　· 中文学界</span>
+  </div>
+</section>
+
+<section class="col">
+  <h2>未来研究展望</h2>
+  <div class="pending">
+    <b>待接入</b>
+    本节将结合小红书 / V2EX / Reddit 三平台一手语料观察，提出可操作的研究问题清单。
+  </div>
+</section>
+
+<div class="col">
+<footer>
+  <p>本页为文献综述，与正文报道《当牛马有了下属》同属一个项目。书目信息逐条核对原始出处；标注"未同行评议"的为预印本、工作论文或机构报告，引用时须随文说明。</p>
+  <p>署名 4.0 国际（CC BY 4.0）。</p>
+</footer>
+</div>
+</main>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement, KEY="ox-theme";
+  try{var sv=localStorage.getItem(KEY); if(sv) root.setAttribute("data-theme",sv);}catch(e){}
+  document.getElementById("tt").addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme");
+    if(!cur) cur=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+    var nx=cur==="dark"?"light":"dark";
+    root.setAttribute("data-theme",nx);
+    try{localStorage.setItem(KEY,nx);}catch(e){}
+    draw();
+  });
+
+  function dark(){
+    var a=root.getAttribute("data-theme");
+    if(a) return a==="dark";
+    return matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function sc(id){ var s=SCHOOLS.filter(function(x){return x.id===id;})[0]; return s?(dark()?s.cd:s.c):"#888"; }
+  var byId={}; WORKS.forEach(function(w){byId[w.id]=w;});
+
+  /* ── 统计 ── */
+  document.getElementById("stat-schools").textContent=SCHOOLS.length+" 条";
+  document.getElementById("stat-works").textContent=WORKS.length+" 篇";
+  document.getElementById("stat-links").textContent=LINKS.length+" 组";
+
+  /* ── 学派卡 ── */
+  var sHost=document.getElementById("schools");
+  SCHOOLS.forEach(function(s){
+    var n=WORKS.filter(function(w){return w.s===s.id;}).length;
+    var d=document.createElement("div"); d.className="sc";
+    d.innerHTML='<div class="bar"></div>'+
+      '<div class="n"></div><div class="s"></div><div class="q"></div>'+
+      '<div class="cnt"></div>';
+    d.querySelector(".bar").style.background=dark()?s.cd:s.c;
+    d.querySelector(".n").textContent=s.name;
+    d.querySelector(".s").textContent=s.span[0]+" – "+s.span[1];
+    d.querySelector(".q").textContent=s.sub;
+    d.querySelector(".cnt").textContent="收录 "+n+" 篇";
+    d.dataset.school=s.id;
+    sHost.appendChild(d);
+  });
+
+  /* ── 断线 ── */
+  var gHost=document.getElementById("gaps");
+  MISSING_LINKS.forEach(function(m){
+    var A=SCHOOLS.filter(function(x){return x.id===m.a;})[0];
+    var B=SCHOOLS.filter(function(x){return x.id===m.b;})[0];
+    var d=document.createElement("div"); d.className="gap-card";
+    d.innerHTML='<div class="gap-pair">'+
+      '<span class="gap-node a"></span><span class="gap-line"></span>'+
+      '<span class="gap-x">✕</span><span class="gap-line"></span>'+
+      '<span class="gap-node b"></span></div><p></p>';
+    var na=d.querySelector(".gap-node.a"), nb=d.querySelector(".gap-node.b");
+    na.textContent=A.name; nb.textContent=B.name;
+    na.style.color=dark()?A.cd:A.c; nb.style.color=dark()?B.cd:B.c;
+    d.querySelector("p").textContent=m.claim;
+    gHost.appendChild(d);
+  });
+
+  /* ── 时间轴 ── */
+  var svg=document.getElementById("tl"), detail=document.getElementById("tl-detail");
+  var NS="http://www.w3.org/2000/svg";
+  var showArcs=false, onlyPivot=false, soloSchool=null, selected=null;
+  var Y0=1825, Y1=2030, PADL=132, PADR=24, PADT=26, PADB=30, LANE=46;
+
+  function el(n,a){var e=document.createElementNS(NS,n); for(var k in a) e.setAttribute(k,a[k]); return e;}
+
+  function draw(){
+    var W=Math.max(900, svg.parentNode.clientWidth||900);
+    var H=PADT+PADB+SCHOOLS.length*LANE;
+    svg.setAttribute("width",W); svg.setAttribute("height",H);
+    svg.setAttribute("viewBox","0 0 "+W+" "+H);
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var IW=W-PADL-PADR;
+    function X(y){ return PADL+(y-Y0)/(Y1-Y0)*IW; }
+    function LY(i){ return PADT+i*LANE+LANE/2; }
+    var css=getComputedStyle(document.body);
+    var cRule=css.getPropertyValue("--rule").trim();
+    var cInk3=css.getPropertyValue("--ink-3").trim();
+    var cInk =css.getPropertyValue("--ink").trim();
+
+    /* 年份刻度 */
+    for(var y=1850;y<=2025;y+=25){
+      svg.appendChild(el("line",{x1:X(y),y1:PADT-8,x2:X(y),y2:H-PADB+4,stroke:cRule,"stroke-width":1}));
+      var tx=el("text",{x:X(y),y:H-PADB+18,"text-anchor":"middle",class:"tl-axis",fill:cInk3});
+      tx.textContent=y; svg.appendChild(tx);
+    }
+
+    /* 泳道 */
+    SCHOOLS.forEach(function(s,i){
+      var col=dark()?s.cd:s.c;
+      var vis=!soloSchool||soloSchool===s.id;
+      svg.appendChild(el("rect",{x:X(s.span[0])-6,y:LY(i)-13,width:Math.max(12,X(s.span[1])-X(s.span[0])+12),
+        height:26,fill:col,class:"tl-band",rx:3,opacity:vis?.09:.03}));
+      svg.appendChild(el("line",{x1:PADL-8,y1:LY(i),x2:W-PADR,y2:LY(i),stroke:cRule,"stroke-width":1,
+        opacity:vis?.8:.25}));
+      var g=el("g",{style:"cursor:pointer"});
+      var t1=el("text",{x:PADL-16,y:LY(i)-1,"text-anchor":"end",class:"tl-lane-label",
+        fill:vis?cInk:cInk3,opacity:vis?1:.45});
+      t1.textContent=s.name;
+      var t2=el("text",{x:PADL-16,y:LY(i)+12,"text-anchor":"end",class:"tl-lane-sub",fill:cInk3,opacity:vis?.9:.4});
+      t2.textContent=s.span[0]+"–"+s.span[1];
+      g.appendChild(t1); g.appendChild(t2);
+      g.addEventListener("click",function(){ soloSchool=(soloSchool===s.id)?null:s.id; draw(); });
+      svg.appendChild(g);
+    });
+
+    /* 弧线 */
+    if(showArcs){
+      LINKS.forEach(function(L){
+        var a=byId[L.f], b=byId[L.t]; if(!a||!b) return;
+        if(soloSchool && a.s!==soloSchool && b.s!==soloSchool) return;
+        if(onlyPivot && !(a.pivot||b.pivot)) return;
+        var ia=SCHOOLS.findIndex(function(s){return s.id===a.s;});
+        var ib=SCHOOLS.findIndex(function(s){return s.id===b.s;});
+        var x1=X(a.y), y1=LY(ia), x2=X(b.y), y2=LY(ib);
+        var mx=(x1+x2)/2, my=(y1+y2)/2-Math.min(56,Math.abs(x2-x1)/3+18);
+        var col=L.k==="反驳"?css.getPropertyValue("--bad").trim():
+                L.k==="修正"?css.getPropertyValue("--warn").trim():cInk3;
+        var p=el("path",{d:"M"+x1+","+y1+" Q"+mx+","+my+" "+x2+","+y2,class:"tl-arc",
+          stroke:col,"stroke-width":L.k==="反驳"?1.6:1,
+          "stroke-dasharray":L.k==="反驳"?"":"3 3",opacity:.5});
+        svg.appendChild(p);
+      });
+    }
+
+    /* 文献点 */
+    WORKS.forEach(function(w){
+      var i=SCHOOLS.findIndex(function(s){return s.id===w.s;}); if(i<0) return;
+      var vis=(!soloSchool||soloSchool===w.s)&&(!onlyPivot||w.pivot);
+      var r=w.pivot?6:4.2;
+      var c=el("circle",{cx:X(w.y),cy:LY(i),r:r,fill:sc(w.s),class:"tl-dot",
+        opacity:vis?1:.16,stroke:selected===w.id?cInk:"none","stroke-width":selected===w.id?2:0});
+      c.setAttribute("tabindex","0");
+      c.setAttribute("role","button");
+      c.setAttribute("aria-label",w.y+" "+w.a+" "+w.zh);
+      if(w.pivot) c.setAttribute("stroke",css.getPropertyValue("--mark").trim()),c.setAttribute("stroke-width",2);
+      function pick(){ selected=w.id; show(w); draw(); }
+      c.addEventListener("click",pick);
+      c.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();pick();} });
+      var ttl=el("title"); ttl.textContent=w.y+"　"+w.a+"　"+w.zh; c.appendChild(ttl);
+      svg.appendChild(c);
+    });
+  }
+
+  function show(w){
+    var rel=LINKS.filter(function(L){return L.f===w.id||L.t===w.id;}).map(function(L){
+      var other=byId[L.f===w.id?L.t:L.f]; if(!other) return null;
+      return (L.f===w.id?"→ 影响 ":"← 承自 ")+other.a.split(",")[0]+" "+other.y+"（"+L.k+"）";
+    }).filter(Boolean);
+    var badges="";
+    if(w.pivot)   badges+='<span class="pill pivot">枢纽</span> ';
+    if(w.caution) badges+='<span class="pill caution">须加限定</span> ';
+    if(w.peer===0)badges+='<span class="pill nopeer">未同行评议</span> ';
+    detail.innerHTML=
+      '<div class="d-y">'+w.y+'　'+(SCHOOLS.filter(function(s){return s.id===w.s;})[0]||{}).name+'　'+badges+'</div>'+
+      '<div class="d-t"></div>'+
+      '<div class="d-o"></div>'+
+      '<div class="d-k"></div>'+
+      '<div class="d-r"></div>'+
+      (rel.length?'<div class="d-links">'+rel.join('　·　')+'</div>':'');
+    detail.querySelector(".d-t").textContent=w.zh;
+    detail.querySelector(".d-o").textContent=w.a+"　"+w.t+"　"+w.v;
+    detail.querySelector(".d-k").textContent=w.k;
+    detail.querySelector(".d-r").textContent=w.r;
+  }
+
+  document.getElementById("arcs").addEventListener("click",function(){
+    showArcs=!showArcs; this.setAttribute("aria-pressed",showArcs); draw();
+  });
+  document.getElementById("pivots").addEventListener("click",function(){
+    onlyPivot=!onlyPivot; this.setAttribute("aria-pressed",onlyPivot); draw();
+  });
+
+  /* ── 证据矩阵 ── */
+  var evHost=document.getElementById("ev"), evSort="rank";
+  function renderEv(){
+    var rows=WORKS.filter(function(w){return w.design && (w.s==="llm"||w.s==="teaming");});
+    rows.sort(function(a,b){
+      if(evSort==="year") return b.y-a.y;
+      if(evSort==="n") return (b.n||0)-(a.n||0);
+      var ra=(DESIGN[a.design]||{}).rank||0, rb=(DESIGN[b.design]||{}).rank||0;
+      return rb-ra || b.y-a.y;
+    });
+    var h='<div class="ev-row hdr"><div>年份</div><div>研究</div><div>设计</div><div>样本</div><div>同行评议</div></div>';
+    rows.forEach(function(w){
+      var d=DESIGN[w.design]||{label:"—",rank:0};
+      var bars=""; for(var i=0;i<5;i++) bars+='<i class="'+(i<d.rank?"on":"")+'"></i>';
+      h+='<div class="ev-row">'+
+        '<div class="ev-y">'+w.y+'</div>'+
+        '<div class="ev-t">'+esc(w.zh)+'<small>'+esc(w.a)+'　'+esc(w.v)+'</small>'+
+          (w.caution?'<span class="ev-cav">'+esc(w.r)+'</span>':'')+'</div>'+
+        '<div class="ev-d"><span>'+d.label+'</span><span class="ev-bar">'+bars+'</span></div>'+
+        '<div class="ev-n">'+(w.n?("n="+w.n):"—")+'</div>'+
+        '<div class="ev-p '+(w.peer?"yes":"no")+'">'+(w.peer?"已评议":"未评议")+'</div>'+
+      '</div>';
+    });
+    evHost.innerHTML=h;
+  }
+  function esc(s){ return String(s).replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-sort]"),function(b){
+    b.addEventListener("click",function(){
+      Array.prototype.forEach.call(document.querySelectorAll("[data-sort]"),function(x){x.setAttribute("aria-pressed","false");});
+      b.setAttribute("aria-pressed","true"); evSort=b.dataset.sort; renderEv();
+    });
+  });
+
+  renderEv(); draw();
+  var rt; addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(draw,140); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",draw);
+})();
+</script>
+</body>
+</html>
