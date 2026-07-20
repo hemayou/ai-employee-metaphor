@@ -5,7 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>学术源流与讨论 —— 人、机器与自动化劳动关系的研究谱系</title>
 <meta name="description" content="从 1832 年到 2026 年，人与机器/自动化/AI 劳动关系研究的九条脉络：时间轴、影响与反驳关系、证据强度矩阵，以及未来研究展望。">
+<link rel="preload" href="fonts/NotoSerifSC-Regular.subset.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* ── 自托管中文衬线：Noto Serif SC 子集（SIL OFL 1.1，见 fonts/OFL.txt）──
+   iOS 不带中文衬线字体，若只靠系统栈，汉字会掉回苹方黑体。
+   子集只含本站用到的 1788 个码位，Regular 299K / Bold 312K。
+   内容有增改后重跑 tools/subset-fonts.sh 即可。 */
+@font-face{
+  font-family:"NotoSerifSC Subset";
+  src:url("fonts/NotoSerifSC-Regular.subset.woff2") format("woff2");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"NotoSerifSC Subset";
+  src:url("fonts/NotoSerifSC-Bold.subset.woff2") format("woff2");
+  font-weight:700; font-style:normal; font-display:swap;
+}
+
 :root{
   --paper:#E8EAEE; --paper-2:#DEE1E7; --paper-3:#D4D8E0;
   --ink:#15171C; --ink-2:#3D434F; --ink-3:#697084;
@@ -15,7 +31,7 @@
   --quote-bg:#DFE2E9;
   --ok:#3F6E5A; --warn:#8A6B3A; --bad:#8A3B44;
 
-  --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --serif:"NotoSerifSC Subset","Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",Georgia,"Times New Roman",serif;
   --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   --measure:35em; --wide:min(96vw,1180px);

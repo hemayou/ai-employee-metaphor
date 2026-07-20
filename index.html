@@ -8,7 +8,23 @@
 <meta property="og:title" content="当牛马有了下属">
 <meta property="og:description" content="一份关于“AI 员工”隐喻的三平台语料观察">
 <meta property="og:type" content="article">
+<link rel="preload" href="fonts/NotoSerifSC-Regular.subset.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* ── 自托管中文衬线：Noto Serif SC 子集（SIL OFL 1.1，见 fonts/OFL.txt）──
+   iOS 不带中文衬线字体，若只靠系统栈，汉字会掉回苹方黑体。
+   子集只含本站用到的 1788 个码位，Regular 299K / Bold 312K。
+   内容有增改后重跑 tools/subset-fonts.sh 即可。 */
+@font-face{
+  font-family:"NotoSerifSC Subset";
+  src:url("fonts/NotoSerifSC-Regular.subset.woff2") format("woff2");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"NotoSerifSC Subset";
+  src:url("fonts/NotoSerifSC-Bold.subset.woff2") format("woff2");
+  font-weight:700; font-style:normal; font-display:swap;
+}
+
 /* ── tokens ───────────────────────────────────────────── */
 :root{
   --paper:#E8EAEE;      /* 冷灰纸，偏蓝 */
@@ -23,7 +39,7 @@
   --mark-bg:rgba(180,154,62,.16);
   --quote-bg:#DFE2E9;
 
-  --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --serif:"NotoSerifSC Subset","Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",Georgia,"Times New Roman",serif;
   --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
 
