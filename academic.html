@@ -193,6 +193,61 @@ strong{font-weight:700}
 footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(--s5);
   font-family:var(--mono); font-size:11.5px; line-height:1.95; color:var(--ink-3);
   display:flex; flex-direction:column; gap:var(--s2)}
+
+/* ── 九节正文 ─────────────────────────────────────── */
+.sec-body{display:flex; flex-direction:column; gap:var(--s3)}
+.sec-head{display:flex; flex-direction:column; gap:.5rem; border-top:2px solid var(--ink); padding-top:var(--s2)}
+.sec-num{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--mark)}
+.sec-title{font-family:var(--sans); font-weight:700; font-size:1.42rem; line-height:1.4; margin:0; text-wrap:balance}
+.sec-span{font-family:var(--mono); font-size:11.5px; color:var(--ink-3)}
+.sec-q{font-size:1.02rem; line-height:1.8; color:var(--ink-2); border-left:2px solid var(--mark);
+  padding-left:.85rem; background:var(--mark-bg); padding-block:.6rem; padding-right:.7rem}
+.sec-p{margin:0; line-height:1.95}
+
+/* 争论对撞卡 */
+.deb{border:1px solid var(--rule); background:var(--paper-2); display:flex; flex-direction:column}
+.deb-q{font-family:var(--sans); font-weight:700; font-size:1rem; line-height:1.55;
+  padding:.9rem 1rem; border-bottom:1px solid var(--rule)}
+.deb-sides{display:grid; grid-template-columns:1fr 1px 1fr}
+.deb-side{padding:.9rem 1rem; display:flex; flex-direction:column; gap:.4rem}
+.deb-side .tagab{font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-3)}
+.deb-side p{font-size:.93rem; line-height:1.8}
+.deb-rule{background:var(--rule)}
+.deb-st{font-family:var(--mono); font-size:11.5px; line-height:1.75; color:var(--ink-2);
+  padding:.75rem 1rem; border-top:1px solid var(--rule); background:var(--paper-3);
+  display:flex; gap:.55rem; align-items:flex-start}
+.st-dot{width:7px;height:7px;border-radius:50%;flex:none;margin-top:.5rem}
+.st-open{background:var(--bad)} .st-closed{background:var(--ok)} .st-park{background:var(--ink-3)}
+@media (max-width:640px){.deb-sides{grid-template-columns:1fr; grid-template-rows:auto 1px auto}}
+
+.legacy{border-left:2px solid var(--accent); background:var(--quote-bg); padding:1rem 1.1rem;
+  display:flex; flex-direction:column; gap:.7rem}
+.legacy .lg-h{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; color:var(--ink-3)}
+.legacy p{font-size:.96rem; line-height:1.85}
+
+/* 展望区 */
+.q-conv{margin:0; border:1px solid var(--rule); background:var(--paper-2); padding:1.1rem 1.2rem;
+  display:flex; flex-direction:column; gap:.6rem}
+.q-conv blockquote{margin:0; display:flex; flex-direction:column; gap:.75rem}
+.q-conv p{font-size:.97rem; line-height:1.8}
+.q-conv b{font-family:var(--sans); font-size:11px; letter-spacing:.1em; color:var(--mark);
+  display:inline-block; min-width:7.5em}
+.q-conv figcaption{font-family:var(--mono); font-size:11px; color:var(--ink-3); border-top:1px solid var(--rule); padding-top:.55rem}
+
+.matrix2{display:grid; grid-template-columns:4.5rem 1fr 1fr; gap:1px; background:var(--rule);
+  border:1px solid var(--rule)}
+.m-cell{background:var(--paper-2); padding:.9rem .8rem; font-family:var(--sans); font-size:.86rem; line-height:1.6}
+.m-cell b{display:block; font-size:.96rem; margin-bottom:.25rem}
+.m-cell span{color:var(--ink-2); font-size:.8rem}
+.m-hdr{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); background:var(--paper-3)}
+.m-lbl{font-family:var(--mono); font-size:11px; color:var(--ink-3); background:var(--paper-3); display:flex; align-items:center}
+.m-ident{background:var(--mark-bg)}
+
+ol.agenda{margin:0; padding-left:1.4rem; display:flex; flex-direction:column; gap:.9rem}
+ol.agenda li{line-height:1.85; font-size:.99rem}
+ol.agenda b{font-family:var(--sans); font-weight:700}
+ol.agenda::marker{font-family:var(--mono)}
+
 @media (max-width:640px){body{font-size:16.5px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
 @media print{.topbar,.spine,.tl-head,.ev-head{display:none}}
@@ -218,7 +273,7 @@ footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(-
   <p class="byline">
     九条脉络　<b id="stat-schools">—</b><br>
     收录文献　<b id="stat-works">—</b>　影响与反驳关系　<b id="stat-links">—</b><br>
-    状态　<b>骨架已就位，分节正文与扩充书目撰写中</b>
+    正文　<b id="stat-secs">—</b>　书目核查　<b>133 条逐条核实，5 处细节订正，0 条编造</b>
   </p>
 </header>
 </div>
@@ -278,24 +333,70 @@ footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(-
   </div>
 </section>
 
-<!-- ═══ 待补 ═══ -->
-<section class="col">
-  <h2>分节正文</h2>
-  <div class="pending">
-    <b>撰写中</b>
-    九节正文与扩充书目正由分学派研究员并行撰写，每节完成后立即进入逐条书目核查。
-    完成后将合并入本页，替换此处占位。
-    <span>· 古典源流　· 控制论与自动化　· 人因工程　· 拟人化与 CASA　· 数字劳动</span>
-    <span>· 责任与伦理　· AI 作为队友　· LLM 实证　· 中文学界</span>
-  </div>
-</section>
+<!-- ═══ 九节正文 ═══ -->
+<div id="sections"></div>
 
-<section class="col">
-  <h2>未来研究展望</h2>
-  <div class="pending">
-    <b>待接入</b>
-    本节将结合小红书 / V2EX / Reddit 三平台一手语料观察，提出可操作的研究问题清单。
+<!-- ═══ 未来研究展望 ═══ -->
+<section class="col" id="outlook">
+  <h2>四个方向指向同一个空白</h2>
+
+  <p>九节分头写完之后，有件事是我没有预设、它却自己出现的：<strong>四节在各自的结尾处，指向了同一个缺口。</strong></p>
+
+  <figure class="q-conv">
+    <blockquote>
+      <p><b>数字劳动</b>　“这条脉络的因变量始终是劳动者的处境，自变量是算法。本综述追问的是箭头调头之后的事……两端至今几乎没有被接上线。”</p>
+      <p><b>AI 作为队友</b>　“当代最普遍的场景恰恰是这三个角色塌缩到同一个个人身上：他既是老板，又是唯一的员工，也是唯一的受害者。”</p>
+      <p><b>LLM 实证</b>　“绝大多数研究把人当作被 AI 影响的对象来测，很少测人作为指挥者本身的技能……眼下近乎空白。”</p>
+      <p><b>中文学界</b>　“一旦人成为下指令、验收成果、判断该不该信任 AI 的一方，现成的概念工具立刻不够用。”</p>
+    </blockquote>
+    <figcaption>四节的结尾段，撰写时彼此不可见</figcaption>
+  </figure>
+
+  <p>四支文献用四套语言，说的是同一件事：<strong>学界有一整套研究“人被机器管”的成熟工具，却几乎没有研究“人管机器”的工具。</strong></p>
+
+  <p class="beat">这不是某一节的疏漏，是整个领域的构造。</p>
+
+  <p>原因不难推断。研究者的道德直觉站在被管的一方，经费与议题也跟着走。而“人指挥 AI”这件事，被管的一方不会喊疼——它没有工会，不接受访谈，不出现在劳动争议仲裁里。于是这个场景只剩下产业界在说话，而产业界的语汇正是被研究的对象本身。</p>
+
+  <h3>一份三平台语料，能填的和不能填的</h3>
+
+  <p>本项目的另一半是一次探索性语料观察：小红书 13 组关键词、V2EX 2024–2026 年 1427 个主帖、Reddit 36 组关键词。它得出一个 2×2 的分布——</p>
+
+  <div class="matrix2">
+    <div class="m-cell m-hdr"></div>
+    <div class="m-cell m-hdr">普通劳动者</div>
+    <div class="m-cell m-hdr">开发者</div>
+    <div class="m-cell m-lbl">中文</div>
+    <div class="m-cell m-ident"><b>处境认同</b><span>AI 是另一个我。讨好型人格、强迫性顺从</span></div>
+    <div class="m-cell"><b>距离化 + 反向压榨</b><span>奴役、PUA、007、包工头、当小主管</span></div>
+    <div class="m-cell m-lbl">英文</div>
+    <div class="m-cell"><b>情绪认同</b><span>“这就是我的内心独白”，但不延伸到劳动处境</span></div>
+    <div class="m-cell"><b>距离化评级</b><span>像 junior、像海外外包团队</span></div>
   </div>
+
+  <p class="mcap">同为中文，普通用户与开发者位置相反；跨语言的开发者之间位置相同。<strong>决定隐喻方向的是劳动位置，不是语言。</strong></p>
+
+  <p>它<strong>能</strong>提供的，是一个学界目前没有的经验入口：中文开发者社区把自己在职场里挨过的整套词——奴役、PUA、压榨、使唤、007、包工头——原样搬到 AI 身上，且在社区内部未引起任何讨论。这批语料恰好落在第六节 Coeckelbergh 与第七节团队科学都够不着的那一格。</p>
+
+  <p>它<strong>不能</strong>提供的，是任何因果结论。关键词驱动、Reddit 搜索不检索评论区（第一轮的“找不到”被证实部分是工具假象）、V2EX 回复层为抽样、无时间序列、无对照组。它是一份线索，不是一项研究。</p>
+
+  <h3>九个可做的问题</h3>
+
+  <ol class="agenda">
+    <li><b>迁移方向。</b>被算法管理的经验，会不会预测一个人管理 AI 的方式？可测：同一批平台从业者，其被派单的强度与他们对 AI 的指令语气是否相关。这是把第五节与本议题接线的最直接一步。</li>
+    <li><b>三角色塌缩。</b>当老板、员工、受害者是同一个人，团队科学的相互监控、补位、心理安全机制还剩什么？第七节的判准（共同基础、可预测性、责任共担）可以直接搬来做操作化。</li>
+    <li><b>指挥技能本身。</b>怎么下指令、怎么设验收标准、怎么分配复核——这些能力可测量、可训练吗？第八节指出这块近乎空白，而 Anthropic 那项 RCT 里“会追问者 65%+ / 纯生成者 &lt;40%”的组内分化，说明它可能是最关键的变量。</li>
+    <li><b>称谓的因果效应。</b>Wiles 等只测了一次、只测管理者、且效应集中在 23% 子组。改称谓的效应在个人使用者身上是否成立？重复实验成本很低。</li>
+    <li><b>去心智化的触发条件。</b>第四节最反直觉的发现是去心智化而非拟人化预测攻击。那么“自居老板”这个动作本身是否包含主动降格？这是可以做实验的。</li>
+    <li><b>溃缩区的日常版本。</b>Elish 的道德溃缩区来自三里岛与自动驾驶。个人使用者按下确认键时是否处在同一结构里？“出事谁签字”可以做成组织层面的问卷。</li>
+    <li><b>补偿性权力。</b>Fast、Halevy 与 Galinsky 那项“有权力但地位低”的实验，权力对象全是活人。跨到不会受伤的对象是否触发同一机制？这是本议题最诱人也最缺证据的一条。</li>
+    <li><b>纵向追踪。</b>第八节的限度写得很清楚：没有一项研究跟踪超过一年。重度使用者两三年下来实际发生了什么，目前全靠推断。</li>
+    <li><b>中文原生研究。</b>第九节点名：还没有人把白领指挥 AI 的日常，做成一份像陈龙送外卖那样的民族志。小红书上的“我的 AI 实习生”、V2EX 上的“带 AI 干活”，仍在学术视野之外。</li>
+  </ol>
+
+  <p>最后一句留给 Coeckelbergh。他 2015 年写《主人的悲剧》时，大模型还有七年才出现。他说，人们担心机器把人变成奴隶，真正的麻烦却是我们仍旧当着主人——主人因为不碰过程，既丧失了技能，也丧失了对被指挥之物的理解，而脆弱性并不因为你当上主人就消失，它只是被距离掩盖起来。</p>
+
+  <p class="beat">这句话现在有了语料。缺的是研究。</p>
 </section>
 
 <div class="col">
@@ -307,6 +408,7 @@ footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(-
 </main>
 
 <script src="data.js"></script>
+<script src="sections.js"></script>
 <script>
 (function(){
   "use strict";
@@ -333,6 +435,7 @@ footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(-
   document.getElementById("stat-schools").textContent=SCHOOLS.length+" 条";
   document.getElementById("stat-works").textContent=WORKS.length+" 篇";
   document.getElementById("stat-links").textContent=LINKS.length+" 组";
+  var ss=document.getElementById("stat-secs"); if(ss&&typeof SECTIONS_TEXT!=="undefined") ss.textContent=SECTIONS_TEXT.length+" 节，约 "+Math.round(SECTIONS_TEXT.reduce(function(a,x){return a+x.body.join("").length;},0)/100)/10+" 千字";
 
   /* ── 学派卡 ── */
   var sHost=document.getElementById("schools");
@@ -515,6 +618,42 @@ footer{border-top:1px solid var(--rule); padding-top:var(--s3); margin-top:var(-
       b.setAttribute("aria-pressed","true"); evSort=b.dataset.sort; renderEv();
     });
   });
+
+
+  /* ── 九节正文渲染 ── */
+  (function(){
+    var host=document.getElementById("sections"); if(!host||typeof SECTIONS_TEXT==="undefined") return;
+    var CN=["一","二","三","四","五","六","七","八","九"];
+    SECTIONS_TEXT.forEach(function(sec,idx){
+      var meta=SCHOOLS.filter(function(x){return x.id===sec.id;})[0]||{};
+      var col=dark()?(meta.cd||"#888"):(meta.c||"#888");
+      var el=document.createElement("section"); el.className="col sec-body"; el.id="sec-"+sec.id;
+      var h='<div class="sec-head" style="border-top-color:'+col+'">'+
+            '<span class="sec-num">第 '+CN[idx]+' 节　'+esc(meta.name||"")+'</span>'+
+            '<h2 class="sec-title" style="border:0;padding:0">'+esc(sec.title)+'</h2>'+
+            '<span class="sec-span">'+esc(sec.span)+'</span></div>'+
+            '<p class="sec-q">'+esc(sec.q)+'</p>';
+      sec.body.forEach(function(p){ h+='<p class="sec-p">'+esc(p)+'</p>'; });
+      if(sec.debates && sec.debates.length){
+        h+='<h3>这一段的争论</h3>';
+        sec.debates.forEach(function(d){
+          var cls = /已有定论|基本已有定论|大体有定论/.test(d.st)?"st-closed":
+                    /搁置/.test(d.st)?"st-park":"st-open";
+          h+='<div class="deb"><div class="deb-q">'+esc(d.q)+'</div>'+
+             '<div class="deb-sides">'+
+             '<div class="deb-side"><span class="tagab">一方</span><p>'+esc(d.a)+'</p></div>'+
+             '<div class="deb-rule"></div>'+
+             '<div class="deb-side"><span class="tagab">另一方</span><p>'+esc(d.b)+'</p></div>'+
+             '</div><div class="deb-st"><span class="st-dot '+cls+'"></span><span>'+esc(d.st)+'</span></div></div>';
+        });
+      }
+      h+='<div class="legacy" style="border-left-color:'+col+'"><span class="lg-h">遗产与局限</span>';
+      sec.legacy.forEach(function(p){ h+='<p>'+esc(p)+'</p>'; });
+      h+='</div>';
+      el.innerHTML=h; host.appendChild(el);
+    });
+    host.style.display="flex"; host.style.flexDirection="column"; host.style.gap="var(--s6)";
+  })();
 
   renderEv(); draw();
   var rt; addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(draw,140); });
